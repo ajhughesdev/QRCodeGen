@@ -16,7 +16,9 @@ namespace QRCodeGen
     public static async Task<string> Generate(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
     {
-
+      // get QR text from query string 
+      string qrtext = req.Query["qrtext"];
+      log.LogInformation("Generating QR Code for {0}", qrtext);
     }
 
   }
