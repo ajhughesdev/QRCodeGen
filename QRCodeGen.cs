@@ -14,8 +14,8 @@ namespace QRCodeGen
   public static class QRCodeGen
   {
     [FunctionName("GenerateQRCode")]
-    public static async Task<string> Generate(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
+    public static async Task<IActionResult> GenerateQRCode(
+     [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
     {
       // get QR text from query string 
       string qrtext = req.Query["qrtext"];
@@ -25,7 +25,20 @@ namespace QRCodeGen
       var qr = QrCode.EncodeText(qrtext, QrCode.Ecc.Medium);
       // convert it into a byte array for PNG output
       var pngout = qr.ToPng(10, 1, SkiaSharp.SKColors.Black, SkiaSharp.SKColors.White);
-    }
 
+      // create a new return object
+      var ourResult = new ReturnObject { };
+
+      // store our byte array as a string 
+      ourResult.Image = Convert.ToBase64String(pngout);
+
+      // send it as JSON
+      return new JsonResult(ourResult);
+    }
+  }
+  public class ReturnObject
+  {
+    // the only property here is a string for the PNG
+    public string Image { get; set; }
   }
 }
