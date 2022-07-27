@@ -13,9 +13,15 @@ namespace QRCodeGen
 {
   public static class QRCodeGen
   {
+    [FunctionName("Form")]
+    public static HttpResponseMessage Form(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log, ExecutionContext context)
+    {
+
+    }
     [FunctionName("GenerateQRCode")]
     public static async Task<IActionResult> GenerateQRCode(
-     [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
     {
       // get QR text from query string 
       string qrtext = req.Query["qrtext"];
