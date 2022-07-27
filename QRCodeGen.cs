@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Net.Codecrete.QrCodeGenerator;
+using System.Net.Http;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace QRCodeGen
 {
@@ -17,8 +20,22 @@ namespace QRCodeGen
     public static HttpResponseMessage Form(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log, ExecutionContext context)
     {
+      // read in text from a hosted file
+      string indexPage = File.ReadAllText(context.FunctionAppDirectory + "/www/index.html");
 
+      // create a new HTTP Response Message
+      var result = new HttpResponseMessage(HttpStatusCode.OK);
+
+      // add a text/html header for browsers 
+      result.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+
+      // get all the data, and add it to content 
+      result.Content = new ByteArrayContent(System.Text.Encoding.UTF8.GetBytes(indexPage));
+
+      // send it 
+      return result;
     }
+
     [FunctionName("GenerateQRCode")]
     public static async Task<IActionResult> GenerateQRCode(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
