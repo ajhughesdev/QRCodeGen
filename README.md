@@ -61,11 +61,41 @@ http://localhost:{PORT}/api/Form
 
 ## Project Requirements ##
 
-1. Read data from an external file, such as text, JSON, CSV, etc and use that data in your application.
+1. "Read data from an external file, such as text, JSON, CSV, etc and use that data in your application."
+  
 
 ```cs
 string indexPage = File.ReadAllText(context.FunctionAppDirectory + "/www/index.html");
 ```
+
+The `ReadAllText` method opens a text file, reads all the text in the file, and then closes the file. It returns a string containing all the text in the `index.html` file which we then add to the content section of our `HttpResponseMessage`'s header. 
+
+<br />
+
+2. "Build a conversion tool that converts user input to another type and displays it (ex: converts cups to grams)."
+
+```cs
+// get QR text from query string 
+string qrtext = req.Query["qrtext"];
+log.LogInformation("Generating QR Code for {0}", qrtext);
+
+var qr = QrCode.EncodeText(qrtext, QrCode.Ecc.Medium);
+// convert it into a byte array for PNG output
+var pngout = qr.ToPng(10, 1, SkiaSharp.SKColors.Black, SkiaSharp.SKColors.White);
+```
+
+There are two conversions happening here. 1) using the `EncodeText` method of the `QrCode` class, we encode the text from the query string into a QR code. We then convert the QR code into a PNG image using the `ToPng` method. 2) the byte array returned for the PNG output is converted to a base64 string and added to the `ReturnObject`.
+
+<br />
+
+3. see above!
+   
+<br />
+
+4. "Visualize data in a graph, chart, or other visual representation of data."
+
+ The `ToPng` method returns a bitmap representing this QR code.
+
 
 
 <br /><br />
