@@ -1,19 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QR Code Generator</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Generator</title>
+  <style>
+    html {
+      font-family: sans-serif;
+      font-size: 16px;
+      height: 100%;
+      max-width: 25em;
+      margin: auto;
+    }
+
+    input,
+    button {
+      all: unset;
+      width: 15.625em;
+    }
+
+    body {
+      background-color: hsl(220, 61%, 85%);
+      border: 3px solid black;
+      border-radius: .625em;
+      padding-block: 1em;
+      padding-inline: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      align-items: center;
+    }
+
+    input {
+      background-color: white;
+      padding: .25em;
+
+    }
+
+    input::placeholder {
+      color: hsl(220, 10%, 20%);
+      font-size: .75rem;
+    }
+
+    input,
+    img,
+    button {
+      border-radius: .3125rem;
+    }
+
+    img {
+      margin-top: 2em;
+    }
+
+    button {
+      padding-block: .5em;
+      padding-inline: .25em;
+      text-transform: uppercase;
+      color: white;
+      background-color: hsl(220, 10%, 20%);
+      font-weight: 800;
+      text-align: center;
+    }
+  </style>
+</head>
 
 <body>
   <h1>QR Code Generator</h1>
 
-  <input id="inputbox" style="width: 250px;"></input>
-  <br /><br />
+  <input id="inputbox" placeholder="enter qr code string" />
 
-  <button type="button" onclick="GetQRCode()">Create QR Code</button>
+  <button type="button" onclick="GetQRCode()">Get Code!</button>
 
   <div id="demo"></div>
 
