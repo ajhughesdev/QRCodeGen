@@ -73,15 +73,15 @@ http://localhost:{PORT}/api/Form
 
 "You must create at least one class,
 
->line 58 of `QRCodeGen.cs`
+>line 58 of the `ReturnObject.cs` class
 
 then create at least one object of that class and populate it with data.
  
->lines 49 -55 of `QRCodeGen.cs`
+>lines 49 -55 of the `QRCodeGen.cs` class
  
 You must use or display the data in your application."
 
->line 26 of `www/index.html`
+>line 55 of the `QRCodeGen.cs` class
 
 ---
 Create and call at least 3 functions or methods, at least one of which must return a value that is used in your application.
