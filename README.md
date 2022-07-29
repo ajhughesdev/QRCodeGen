@@ -17,6 +17,7 @@ func --version
 dotnet --version
 az version
 ```
+## Clone Tepo and Run the Function ##
 
 Clone the repo and move into the project folder:
 
@@ -29,9 +30,14 @@ To start the generator, use the Azure CLI command:
 
 ```powershell
 func start
-```
 
-The first time will take a few moments to load so please be patient. Following a successful build, you should see a version of the following:
+```
+If the above command fails, tell the program what language to expect by adding a `--csharp` flag.
+
+```powershell
+func start --csharp
+```
+When executing the command for the first time, it may take a few moments to load so please be patient. Following a successful build, you should see a version of the following:
 
 
 >```powershell
