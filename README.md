@@ -1,6 +1,6 @@
 # QR Code Generator
 
-QRCodeGen is the final project for the [Code Louisville](https://www.codelouisville.org) May 2022 Software Developer course 1 cohort. It is an Azure Function that runs locally and has been tested on a machine installed with Windows (64-bit) using [Visual Studio Code](https://visualstudio.microsoft.com/).
+QRCodeGen is the final project for the [Code Louisville](https://www.codelouisville.org) May 2022 Software Developer course 1 cohort. It is an Azure Function that runs locally and has been tested on a machine installed with Windows (64-bit) using [Visual Studio Code](https://visualstudio.microsoft.com/). Please note, this project represents a change from the project plan previously submitted.
  
 ## Install Dependencies ##
 
@@ -17,6 +17,9 @@ func --version
 dotnet --version
 az version
 ```
+
+<br />
+
 ## Clone Tepo and Run the Function ##
 
 Clone the repo and move into the project folder:
@@ -56,7 +59,7 @@ When executing the command for the first time, it may take a few moments to load
 >For detailed output, run func with --verbose flag.
 >```
 
-Navigate to 
+In your browser, navigate to 
 
 ```powershell
 http://localhost:{PORT}/api/Form
@@ -64,8 +67,30 @@ http://localhost:{PORT}/api/Form
 
 `{PORT}` being replaced with the port number randomly assigned by Azure.
 
+<br />
 
 ## Project Requirements ##
+
+"You must create at least one class,
+
+>line 58 of `QRCodeGen.cs`
+
+then create at least one object of that class and populate it with data.
+ 
+>lines 49 -55 of `QRCodeGen.cs`
+ 
+You must use or display the data in your application."
+
+>line 26 of `www/index.html`
+
+---
+Create and call at least 3 functions or methods, at least one of which must return a value that is used in your application.
+
+>methods and/or functions include `GenerateQRCode`, `Form`, `ReadAllText`, `GetBytes`, `LogInformation`, `EncodeText`, `ToPng` and `ToBase64String`
+
+<br />
+
+## Feature List ##
 
 1. "Read data from an external file, such as text, JSON, CSV, etc and use that data in your application."
   
@@ -100,12 +125,9 @@ There are two conversions happening here. 1) using the `EncodeText` method of th
 
 4. "Visualize data in a graph, chart, or other visual representation of data."
 
- The `ToPng` method returns a bitmap representing this QR code.
+ The `ToPng` method returns a bitmap representing the QR code.
 
-
-
-<br /><br />
-
+<br />
 
 <p align="center">
 <img src="./qr-code-generator.png" alt="screenshot of program" />

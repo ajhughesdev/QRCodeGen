@@ -57,7 +57,6 @@ namespace QRCodeGen
   }
   public class ReturnObject
   {
-    // the only property here is a string for the PNG
     public string Image { get; set; }
   }
 }
