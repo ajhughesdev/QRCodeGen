@@ -6,7 +6,6 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Net.Codecrete.QrCodeGenerator;
 using System.Net.Http;
 using System.Net;
@@ -26,13 +25,11 @@ namespace QRCodeGen
       // create a new HTTP Response Message
       var result = new HttpResponseMessage(HttpStatusCode.OK);
 
-      // add a text/html header for browsers 
       result.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
 
       // get all the data, and add it to content 
       result.Content = new ByteArrayContent(System.Text.Encoding.UTF8.GetBytes(indexPage));
 
-      // send it 
       return result;
     }
 
@@ -44,7 +41,6 @@ namespace QRCodeGen
       string qrtext = req.Query["qrtext"];
       log.LogInformation("Generating QR Code for {0}", qrtext);
 
-      // create the QR Code from our text
       var qr = QrCode.EncodeText(qrtext, QrCode.Ecc.Medium);
       // convert it into a byte array for PNG output
       var pngout = qr.ToPng(10, 1, SkiaSharp.SKColors.Black, SkiaSharp.SKColors.White);

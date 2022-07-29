@@ -50,8 +50,26 @@ The first time will take a few moments to load so please be patient. Following a
 >For detailed output, run func with --verbose flag.
 >```
 
-<br />
-<br />
+Navigate to 
+
+```powershell
+http://localhost:{PORT}/api/Form
+```
+
+`{PORT}` being replaced with the port number randomly assigned by Azure.
+
+
+## Project Requirements ##
+
+1. Read data from an external file, such as text, JSON, CSV, etc and use that data in your application.
+
+```cs
+string indexPage = File.ReadAllText(context.FunctionAppDirectory + "/www/index.html");
+```
+
+
+<br /><br />
+
 
 <p align="center">
 <img src="./qr-code-generator.png" alt="screenshot of program" />
