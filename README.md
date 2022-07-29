@@ -130,5 +130,5 @@ There are two conversions happening here. 1) using the `EncodeText` method of th
 <br />
 
 <p align="center">
-<img src="./qr-code-generator.png" alt="screenshot of program" />
+<img src="./qrcodegen.png" alt="screenshot of program" />
 </p>
