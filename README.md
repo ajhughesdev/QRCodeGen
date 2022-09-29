@@ -20,7 +20,7 @@ az version
 
 <br />
 
-## Clone Tepo and Run the Function ##
+## Clone Repo and Run the Function ##
 
 Clone the repo and move into the project folder:
 
